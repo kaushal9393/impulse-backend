@@ -1,0 +1,35 @@
+{
+  "name": "impulse-pathology-backend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -H 0.0.0.0 -p 3001",
+    "build": "next build",
+    "start": "next start -p 3001",
+    "lint": "next lint",
+    "gen:guide": "node scripts/generate-backend-guide.js"
+  },
+  "dependencies": {
+    "@types/express-rate-limit": "^5.1.3",
+    "aws-sdk": "^2.1692.0",
+    "bcryptjs": "^2.4.3",
+    "express-rate-limit": "^8.1.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.0",
+    "next": "^14.2.33",
+    "nodemailer": "^6.9.0",
+    "pdfkit": "^0.15.0",
+    "razorpay": "^2.9.6",
+    "stripe": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/jsonwebtoken": "^9.0.0",
+    "@types/node": "^20.0.0",
+    "@types/nodemailer": "^7.0.2",
+    "@types/react": "19.1.14",
+    "eslint": "^8.0.0",
+    "eslint-config-next": "^13.0.0",
+    "typescript": "^5.0.0"
+  }
+}
