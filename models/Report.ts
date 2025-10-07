@@ -1,10 +1,21 @@
-import mongoose from "mongoose";
+import mongoose, { Schema, Document, model } from "mongoose";
 
-const ReportSchema = new mongoose.Schema({
-  booking: { type: mongoose.Schema.Types.ObjectId, ref: "Booking" },
-  fileUrl: String,
-  notes: String,
-  uploadedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-}, { timestamps: true });
+export interface IReport extends Document {
+  booking: mongoose.Types.ObjectId;
+  fileUrl: string;
+  notes?: string;
+  uploadedBy: mongoose.Types.ObjectId;
+  createdAt: Date;
+}
 
-export default mongoose.models.Report || mongoose.model("Report", ReportSchema);
+const ReportSchema: Schema = new Schema(
+  {
+    booking: { type: Schema.Types.ObjectId, ref: "Booking", required: true },
+    fileUrl: { type: String, required: true },
+    notes: { type: String },
+    uploadedBy: { type: Schema.Types.ObjectId, ref: "User", required: true },
+  },
+  { timestamps: true }
+);
+
+export default mongoose.models.Report || model<IReport>("Report", ReportSchema);

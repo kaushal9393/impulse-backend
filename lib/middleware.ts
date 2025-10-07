@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { verifyToken } from "./jwt";
+import { verifyToken } from "../utils/jwt";
 
 export const authMiddleware = (roles: string[] = []) => {
   return (handler: any) => async (req: NextApiRequest, res: NextApiResponse) => {
